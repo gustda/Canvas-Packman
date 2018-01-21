@@ -18,7 +18,7 @@ namespace Canvas_Packman
 
         public Packman()
         {
-            Size = 20;
+            Size = 15;
             Step = 10;
             X = 200;
             Y=250;

@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maze.cs" />
+    <Compile Include="MazeWall.cs" />
     <Compile Include="Packman.cs" />
     <Compile Include="PackmanLauncher.cs" />
     <Compile Include="Program.cs" />

@@ -14,11 +14,12 @@ namespace Canvas_Packman
         CsharpCanvas canvas;
 
         Packman packman = new Packman();
+        Maze maze = new Maze();
 
         public PackmanLauncher()
         {
             canvas = new CsharpCanvas();
-
+            canvas.SetBackgroundColor(System.Drawing.Color.AliceBlue);
             canvas.Draw += Canvas_Draw;
 
             // für kontinuierliches Zeichnen
@@ -28,7 +29,17 @@ namespace Canvas_Packman
         private void Canvas_Draw()
         {
             CheckKeys();
+            DrawMaze();
             DrawPackman();
+        }
+
+        private void DrawMaze()
+        {
+            canvas.SetForegroundColor(System.Drawing.Color.Brown);
+            for(int i=0;i<maze.Walls.Count;i++)
+            {
+                canvas.AddRectangle(maze.Walls[i].X, maze.Walls[i].Y, maze.Walls[i].Width, maze.Walls[i].Height, Fill.Fill);
+            }
         }
 
         private void DrawPackman()
