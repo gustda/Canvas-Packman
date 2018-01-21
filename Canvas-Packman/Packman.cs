@@ -30,19 +30,19 @@ namespace Canvas_Packman
             switch(key)
             {
                 case Keys.Down:
-                    if (Y < 600 - Step-Size)
+                    if (Y <= 600 - Size)
                         Y = Y + Step;
                     break;
                 case Keys.Up:
-                    if (Y > 0 + Step+Size)
+                    if (Y >= 0 + Size)
                         Y = Y - Step;
                     break;                    
                 case Keys.Left:
-                    if (X > 0 + Step+ Size)
+                    if (X >= 0 + Size)
                         X = X - Step;
                     break;
                 case Keys.Right:
-                    if (X < 600 - Step- Size)
+                    if (X <= 600 -  Size)
                         X = X + Step;
                     break;
             }

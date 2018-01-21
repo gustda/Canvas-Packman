@@ -22,7 +22,7 @@ namespace Canvas_Packman
             canvas.SetBackgroundColor(System.Drawing.Color.AliceBlue);
             canvas.Draw += Canvas_Draw;
 
-            // für kontinuierliches Zeichnen
+            // for continous drawing
             canvas.Setup(30);            
         }
 
@@ -31,6 +31,11 @@ namespace Canvas_Packman
             CheckKeys();
             DrawMaze();
             DrawPackman();
+            if( maze.CheckKollision(packman))
+            {
+                canvas.SetBackgroundColor(System.Drawing.Color.Red);
+            }
+            else { canvas.SetBackgroundColor(System.Drawing.Color.AliceBlue); }
         }
 
         private void DrawMaze()
