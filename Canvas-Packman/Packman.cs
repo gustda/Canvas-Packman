@@ -42,6 +42,23 @@ namespace Canvas_Packman
                             X = X + Step;
                         break;
                 }
+
+                if (X >= 600 || Y >= 600)
+                {
+                    if (Y >= 600)
+                        Y = 5;
+                    if (X >= 600)
+                        X = 5;
+                }
+                else
+                {
+                    if (Y <= 0)
+                        Y = 595;
+                    if (X <= 0)
+                        X = 595;
+                }
+
+
                 steps++;
             }
             else
@@ -54,7 +71,7 @@ namespace Canvas_Packman
 
         public Packman()
         {
-            Size = 50;
+            Size = 40;
             Step = 10;
             X = 205;
             Y=255;

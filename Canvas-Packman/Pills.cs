@@ -31,9 +31,9 @@ namespace Canvas_Packman
 
         public Pills()
         {
-            for (int i=0;i<600;i+=50)
+            for (int i=0;i<600;i+=100)
             {
-                for(int j=0;j<600; j+=50)
+                for(int j=0;j<600; j+=100)
                 {
                     _Pills.Add(new Pill(i + 25, j + 25));
                 }

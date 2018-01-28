@@ -48,6 +48,9 @@ namespace Canvas_Packman
                 if (pills.CheckAndRemovePill(packman.X, packman.Y))
                     Score++;
 
+                if (!CheckPillsLeft())
+                    NewLevel();
+
                 if (Levels[Level].CheckKollision(packman))
                 {
                     StopGame();
@@ -81,6 +84,11 @@ namespace Canvas_Packman
             }
         }
 
+        private bool CheckPillsLeft()
+        {
+            return pills.GetPills().Count > 0;
+        }
+
         private void CheckKeys()
         {
             if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
@@ -95,6 +103,12 @@ namespace Canvas_Packman
 
                 canvas.KeyHandled();
             }
+        }
+
+        private void QuitGame()
+        {
+            StopGame();
+            canvas.AddGameResult("You Won  Restart: press N");
         }
 
         private void StopGame()
@@ -122,10 +136,15 @@ namespace Canvas_Packman
             {
                 pills = new Pills();
             }
+else
+            {
+                QuitGame();
+            }
         }
 
         private void InitLevel()
         {
+            Levels.Add(new Maze());
             Levels.Add(new Maze());
         }
     }

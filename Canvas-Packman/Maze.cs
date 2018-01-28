@@ -14,15 +14,14 @@ namespace Canvas_Packman
         {
             Walls = new List<MazeWall>();
 
-            // add frame
-            Walls.Add(new MazeWall(0, 0, 600, Direction.Horizontal));
-            Walls.Add(new MazeWall(0, 0, 600, Direction.Vertical));
-            Walls.Add(new MazeWall(600 - MazeWall.Thickness, 0,600, Direction.Vertical));
-            Walls.Add(new MazeWall(0, 600-MazeWall.Thickness, 600, Direction.Horizontal));
-        
+            // add frame        
+            Walls.Add(new MazeWall(-2, -2, 600, Direction.Horizontal));
+            Walls.Add(new MazeWall(-2, -2, 600, Direction.Vertical));
+            Walls.Add(new MazeWall(0, 597, 600, Direction.Horizontal));
+            Walls.Add(new MazeWall(597, 0, 600, Direction.Vertical));
+
             Walls.Add(new MazeWall(100, 100, 100, Direction.Horizontal));
             Walls.Add(new MazeWall(100, 100, 100, Direction.Vertical));
-            Walls.Add(new MazeWall(100, 200, 100, Direction.Horizontal));
             Walls.Add(new MazeWall(195,100, 100, Direction.Vertical));
 
             Walls.Add(new MazeWall(300, 100, 200, Direction.Horizontal));
@@ -30,7 +29,6 @@ namespace Canvas_Packman
 
             Walls.Add(new MazeWall(300, 400, 50, Direction.Horizontal));
             Walls.Add(new MazeWall(350, 400, 100, Direction.Vertical));
-            Walls.Add(new MazeWall(420, 300, 200, Direction.Vertical));
             Walls.Add(new MazeWall(420, 400, 80, Direction.Horizontal));
             Walls.Add(new MazeWall(500, 100, 305, Direction.Vertical));
         }
