@@ -14,7 +14,7 @@ namespace Canvas_Packman
         [STAThread]
         static void Main()
         {
-            PackmanLauncher launcher = new PackmanLauncher();
+            GameController launcher = new GameController();
         }
     }
 }

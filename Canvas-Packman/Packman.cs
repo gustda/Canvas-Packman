@@ -30,19 +30,15 @@ namespace Canvas_Packman
                 switch (Angle)
                 {
                     case 90:
-                        if (Y <= 600 - Size)
                             Y = Y + Step;
                         break;
                     case 270:
-                        if (Y >= 0 + Size)
                             Y = Y - Step;
                         break;
                     case 180:
-                        if (X >= 0 + Size)
                             X = X - Step;
                         break;
                     case 0:
-                        if (X <= 600 - Size)
                             X = X + Step;
                         break;
                 }
@@ -60,8 +56,8 @@ namespace Canvas_Packman
         {
             Size = 50;
             Step = 10;
-            X = 200;
-            Y=250;
+            X = 205;
+            Y=255;
             Speed = 5;
         }
 
