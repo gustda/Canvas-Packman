@@ -49,8 +49,12 @@ namespace Canvas_Packman
 
         private void DrawPackman()
         {
-            canvas.SetForegroundColor(System.Drawing.Color.Yellow);
-            canvas.AddCircle(packman.X, packman.Y, packman.Size, Fill.Fill  );
+            //canvas.SetForegroundColor(System.Drawing.Color.Yellow);
+            //canvas.AddCircle(packman.X, packman.Y, packman.Size, Fill.Fill  );
+
+            packman.ProcessPackmanStep();
+
+            canvas.AddPicture("Ressources/Originalpac.png", packman.LeftCornerX, packman.LeftCornerY, packman.Size, packman.Size, packman.Angle);
         }
 
         private void CheckKeys()

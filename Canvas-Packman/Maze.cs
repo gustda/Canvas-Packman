@@ -30,8 +30,8 @@ namespace Canvas_Packman
 
             Walls.Add(new MazeWall(300, 400, 50, Direction.Horizontal));
             Walls.Add(new MazeWall(350, 400, 100, Direction.Vertical));
-            Walls.Add(new MazeWall(400, 300, 200, Direction.Vertical));
-            Walls.Add(new MazeWall(400, 400, 100, Direction.Horizontal));
+            Walls.Add(new MazeWall(420, 300, 200, Direction.Vertical));
+            Walls.Add(new MazeWall(420, 400, 80, Direction.Horizontal));
             Walls.Add(new MazeWall(500, 100, 305, Direction.Vertical));
         }
 
@@ -39,10 +39,10 @@ namespace Canvas_Packman
         {
             foreach(var wall in Walls)
             {
-                if(packman.X+packman.Size>wall.X && packman.X-packman.Size<wall.X+wall.Width)
+                if(packman.X+packman.Size/2>wall.X && packman.X-packman.Size/2<wall.X+wall.Width)
                 {
                     // packman is in the horizantal district
-                    if (packman.Y + packman.Size > wall.Y && packman.Y - packman.Size < wall.Y + wall.Height)
+                    if (packman.Y + packman.Size/2 > wall.Y && packman.Y - packman.Size/2 < wall.Y + wall.Height)
                         return true;
                 }
             }
