@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lernmoment.CsharpCanvas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +15,9 @@ namespace Canvas_Packman
         [STAThread]
         static void Main()
         {
-            GameController launcher = new GameController();
+            CsharpCanvas canvas = new CsharpCanvas();
+            GameController launcher = new GameController(canvas);
+            canvas.Setup();
         }
     }
 }

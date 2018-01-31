@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="csharp-canvas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CsharpCanvas, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\csharp-canvas.dll</HintPath>
+      <HintPath>Lib\CsharpCanvas.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,7 +81,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\csharp-canvas.dll" />
+    <Content Include="Lib\CsharpCanvas.dll" />
     <Content Include="Ressources\Originalpac.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

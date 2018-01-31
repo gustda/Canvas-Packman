@@ -1,4 +1,4 @@
-﻿using csharp_canvas;
+﻿using Lernmoment.CsharpCanvas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace Canvas_Packman
             canvas.Draw += Canvas_Draw;
 
             // for continous drawing
-            canvas.Setup(30);            
+            canvas.Setup();            
         }
 
         private void Canvas_Draw()

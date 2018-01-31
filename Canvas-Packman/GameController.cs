@@ -1,4 +1,4 @@
-﻿using csharp_canvas;
+﻿using Lernmoment.CsharpCanvas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace Canvas_Packman
 {
     class GameController
     {
-        CsharpCanvas canvas;
+        private CsharpCanvas canvas;
 
         Packman packman = new Packman();
         bool IsRunningGame = false;
@@ -23,23 +23,23 @@ namespace Canvas_Packman
         private List<Maze> Levels = new List<Maze>();
 
 
-        public GameController()
+        public GameController(CsharpCanvas aCanvas)
         {
-            canvas = new CsharpCanvas();
+            canvas = aCanvas;
             canvas.SetBackgroundColor(System.Drawing.Color.AliceBlue);
             canvas.Draw += Canvas_Draw;
 
             StartGame();
 
             // for continous drawing
-            canvas.SetupGame(30);            
+            canvas.InitGame(30);
         }
 
         private void Canvas_Draw()
         {
             CheckKeys();
             if (IsRunningGame)
-            {                
+            {
                 DrawMaze();
                 DrawPills();
 
@@ -77,7 +77,7 @@ namespace Canvas_Packman
 
         private void DrawPills()
         {
-            foreach(var pill in pills.GetPills())
+            foreach (var pill in pills.GetPills())
             {
                 canvas.SetForegroundColor(System.Drawing.Color.Blue);
                 canvas.AddCircle(pill.X, pill.Y, pill.Size, Fill.Fill);
@@ -95,7 +95,7 @@ namespace Canvas_Packman
             {
                 packman.ProcessKey(canvas.LastPressedKey);
 
-                if(canvas.LastPressedKey== System.Windows.Forms.Keys.N)
+                if (canvas.LastPressedKey == System.Windows.Forms.Keys.N)
                 {
                     packman = new Packman();
                     StartGame();
@@ -132,11 +132,11 @@ namespace Canvas_Packman
         private void NewLevel()
         {
             Level++;
-            if (Levels.Count>Level)
+            if (Levels.Count > Level)
             {
                 pills = new Pills();
             }
-else
+            else
             {
                 QuitGame();
             }
@@ -144,6 +144,7 @@ else
 
         private void InitLevel()
         {
+            Levels.Clear();
             Levels.Add(new Maze());
             Levels.Add(new Maze());
         }
