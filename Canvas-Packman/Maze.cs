@@ -33,7 +33,7 @@ namespace Canvas_Packman
             Walls.Add(new MazeWall(500, 100, 305, Direction.Vertical));
         }
 
-        public bool CheckKollision(Packman packman)
+        public bool CheckCollision(Packman packman)
         {
             foreach(var wall in Walls)
             {
@@ -41,6 +41,20 @@ namespace Canvas_Packman
                 {
                     // packman is in the horizantal district
                     if (packman.Y + packman.Size/2 > wall.Y && packman.Y - packman.Size/2 < wall.Y + wall.Height)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CheckCollision(Ghost ghost)
+        {
+            foreach (var wall in Walls)
+            {
+                if (ghost.X + ghost.Size / 2 > wall.X && ghost.X - ghost.Size / 2 < wall.X + wall.Width)
+                {
+                    // ghost is in the horizantal district
+                    if (ghost.Y + ghost.Size / 2 > wall.Y && ghost.Y - ghost.Size / 2 < wall.Y + wall.Height)
                         return true;
                 }
             }

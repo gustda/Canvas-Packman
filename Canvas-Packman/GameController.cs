@@ -21,6 +21,7 @@ namespace Canvas_Packman
         private int _Score = 0;
         private int Score { get { return _Score; } set { _Score = value; canvas.Score = value; } }
         private List<Maze> Levels = new List<Maze>();
+        private List<Ghost> Ghosts = new List<Ghost>();
 
 
         public GameController(CsharpCanvas aCanvas)
@@ -44,6 +45,7 @@ namespace Canvas_Packman
                 DrawPills();
 
                 DrawPackman();
+                DrawGhosts();
 
                 if (pills.CheckAndRemovePill(packman.X, packman.Y))
                     Score++;
@@ -51,13 +53,26 @@ namespace Canvas_Packman
                 if (!CheckPillsLeft())
                     NewLevel();
 
-                if (Levels[Level].CheckKollision(packman))
+                if (Levels[Level].CheckCollision(packman)|| CheckGhostCollison(packman))
                 {
                     StopGame();
                     canvas.AddGameResult("Game Over  Restart: press N");
                     //canvas.SetBackgroundColor(System.Drawing.Color.Red);
                 }
             }
+        }
+
+        private bool CheckGhostCollison(Packman packman)
+        {
+            foreach(var ghost in Ghosts)
+            {
+                if (ghost.X + ghost.Size / 2 > packman.LeftCornerX && ghost.X - ghost.Size / 2 < packman.LeftCornerX + packman.Size)
+                {
+                    if (ghost.Y + ghost.Size / 2 > packman.LeftCornerY && ghost.Y - ghost.Size / 2 < packman.LeftCornerY + packman.Size)
+                        return true;
+                }
+            }
+            return false;
         }
 
         private void DrawMaze()
@@ -74,6 +89,16 @@ namespace Canvas_Packman
             packman.ProcessPackmanStep();
             canvas.AddPicture("Ressources/Originalpac.png", packman.LeftCornerX, packman.LeftCornerY, packman.Size, packman.Size, packman.Angle);
         }
+
+        private void DrawGhosts()
+        {
+            foreach(var ghost in Ghosts)
+            {
+                ghost.ProcessGhostStep(Levels[Level].CheckCollision(ghost));
+                canvas.AddPicture("Ressources/ghost.gif", ghost.LeftCornerX, ghost.LeftCornerY, ghost.Size, ghost.Size, 0);
+            }
+        }
+            
 
         private void DrawPills()
         {
@@ -132,9 +157,15 @@ namespace Canvas_Packman
         private void NewLevel()
         {
             Level++;
+            Ghosts.Clear();
             if (Levels.Count > Level)
             {
                 pills = new Pills();
+                for(int i=0;i<=Level;i++)
+                {
+                    // erzeuge einen neunen Geist je Level
+                    Ghosts.Add(new Ghost(25, 25));
+                }
             }
             else
             {
@@ -144,7 +175,8 @@ namespace Canvas_Packman
 
         private void InitLevel()
         {
-            Levels.Clear();
+            Levels.Clear();            
+            // add Level 1
             Levels.Add(new Maze());
             Levels.Add(new Maze());
         }

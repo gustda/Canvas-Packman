@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameController.cs" />
+    <Compile Include="Ghost.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="MazeWall.cs" />
     <Compile Include="Packman.cs" />
@@ -82,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\CsharpCanvas.dll" />
+    <Content Include="Ressources\ghost.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Ressources\Originalpac.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

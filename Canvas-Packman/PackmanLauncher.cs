@@ -31,7 +31,7 @@ namespace Canvas_Packman
             CheckKeys();
             DrawMaze();
             DrawPackman();
-            if( maze.CheckKollision(packman))
+            if( maze.CheckCollision(packman))
             {
                 canvas.SetBackgroundColor(System.Drawing.Color.Red);
             }
